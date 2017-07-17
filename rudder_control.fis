@@ -1,0 +1,57 @@
+[System]
+Name='rudder_control'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=15
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='DesiredHeading'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=5
+MF1='StrongLeft':'trapmf',[-3.142 -3.142 -1.745 -0.8727]
+MF2='Left':'trimf',[-1.745 -0.8727 0]
+MF3='Middle':'trapmf',[-0.8727 -0.3491 0.3491 0.8727]
+MF4='Right':'trimf',[0 0.8727 1.745]
+MF5='StrongRight':'trapmf',[0.8727 1.745 3.142 3.142]
+
+[Input2]
+Name='RotationalSpeed'
+Range=[-1.0471975511966 1.0471975511966]
+NumMFs=3
+MF1='Left':'trapmf',[-1.047 -1.047 -0.4189 -0.0001869]
+MF2='Neutral':'trimf',[-0.4189 -0.0001869 0.4189]
+MF3='Right':'trapmf',[-0.0001869 0.4189 1.047 1.047]
+
+[Output1]
+Name='RudderControl'
+Range=[-0.314159265358979 0.314159265358979]
+NumMFs=5
+MF1='StrongLeft':'trimf',[-0.2513 -0.2356 -0.2199]
+MF2='Left':'trimf',[-0.09425 -0.07854 -0.06283]
+MF3='Keep':'trimf',[-0.01571 0 0.01571]
+MF4='Right':'trimf',[0.06283 0.07854 0.09425]
+MF5='StrongRight':'trimf',[0.2199 0.2356 0.2513]
+
+[Rules]
+1 1, 2 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 3 (1) : 1
+2 2, 2 (1) : 1
+2 3, 5 (1) : 1
+3 1, 4 (1) : 1
+3 2, 3 (1) : 1
+3 3, 2 (1) : 1
+4 1, 5 (1) : 1
+4 2, 4 (1) : 1
+4 3, 3 (1) : 1
+5 1, 5 (1) : 1
+5 2, 5 (1) : 1
+5 3, 4 (1) : 1

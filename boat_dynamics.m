@@ -4,17 +4,17 @@
 function  dydt = boat_dynamics(y)
 
     global p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11
-    p1 = 0.03 % drift  coefficient
-    p2 = 40 % tangential friction
-    p3 = 6000 % angular friction
-    p4 = 200 % sail lift
-    p5 = 1500 % rudder lift
-    p6 = 0.5 % distance to sail center of effort
-    p7 = 0.5 % distance to mast
-    p8 = 2 % distance to rudder
-    p9 = 300 % mass of boat
-    p10 = 400 % moment of inertia
-    p11 = 0.2 % rudder break coefficient
+    p1 = 0.03; % drift  coefficient
+    p2 = 40; % tangential friction
+    p3 = 6000; % angular friction
+    p4 = 200; % sail lift
+    p5 = 1500; % rudder lift
+    p6 = 0.5; % distance to sail center of effort
+    p7 = 0.5; % distance to mast
+    p8 = 2; % distance to rudder
+    p9 = 300; % mass of boat
+    p10 = 400; % moment of inertia
+    p11 = 0.2; % rudder break coefficient
 
     y1 = y(1); % x
     y2 = y(2); % y
@@ -29,8 +29,8 @@ function  dydt = boat_dynamics(y)
     delta_s = delta(2);
 
     % true wind characteristics from input
-    a_true = wind_true(1) % speed
-    psi_true = wind_true(2) % direction in n-frame
+    a_true = wind_true(1); % speed
+    psi_true = wind_true(2); % direction in n-frame
     
 
     % apparent wind characteristics
