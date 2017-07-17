@@ -1,5 +1,5 @@
 % sail control function from "Modeling, control and state-estimation for an
-% autonomous sailboat", Jon M
+% autonomous sailboat", John Melin
 function  sail_angle = sail_control(input)
     delta_sail_min = pi/32;
     delta_sail_max = pi/5.2;
